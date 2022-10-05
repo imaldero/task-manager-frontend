@@ -56,5 +56,5 @@ signupform.addEventListener(`submit`, (e) => {
 });
 
 signinpagebtn.addEventListener(`click`, (e) => {
-  location.href = `./index.html`;
+  location.href = `../index.html`;
 });

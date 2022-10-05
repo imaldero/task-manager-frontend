@@ -1,5 +1,5 @@
 if (localStorage.getItem(`token`) || !localStorage.getItem(`token`) === ``) {
-  location.href = `./home.html`;
+  location.href = `./pages/home.html`;
 }
 const resultmsg = document.querySelector(`#resultmsg`);
 const profilebutton = document.querySelector(`#profilebutton`);
@@ -38,7 +38,7 @@ loginform.addEventListener(`submit`, (e) => {
     })
     .then((data) => {
       localStorage.setItem(`token`, data.token);
-      location.href = `./home.html`;
+      location.href = `./pages/home.html`;
     })
     .catch((e) => {
       console.log(e);
@@ -47,5 +47,5 @@ loginform.addEventListener(`submit`, (e) => {
 
 signuppagebtn.addEventListener(`click`, (e) => {
   e.preventDefault();
-  location.href = `./signup.html`;
+  location.href = `./pages/signup.html`;
 });
