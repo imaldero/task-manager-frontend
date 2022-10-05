@@ -1,0 +1,240 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap");
+body {
+  min-height: 100vh;
+  color: white;
+  background-color: #2b1055;
+
+  /* background: linear-gradient(#2b1055, #7597de); */
+
+  background-image: url("../images/15Z_2102.w026.n002.163B.p1.163.jpg");
+  background-position: center 0px;
+  background-size: auto;
+  background-repeat: repeat;
+}
+header {
+  margin: 1%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+}
+.logo {
+  margin: 2%;
+  height: 8%;
+  width: 8%;
+  min-width: 70px;
+  min-height: 20px;
+}
+.nav-btns {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* flex-wrap: wrap; */
+  margin-right: 5%;
+}
+.nav-btns button {
+  transition: 0.5s;
+  margin: 2%;
+  font-family: "Bebas Neue", cursive;
+  font-size: x-large;
+  padding: 8px 19px;
+  color: #2b1055;
+  background-color: white;
+  border-radius: 25px;
+  height: auto;
+  width: auto;
+  min-width: 40%;
+  /* max-width: 90px; */
+  cursor: pointer;
+}
+button:hover {
+  transition: 0.5s;
+  background-color: #a8a8a8;
+}
+#logoutbtn:hover {
+  transition: 0.5s;
+  background-color: #ff5353;
+}
+.task-section {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
+.delete-section {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+.delete-task-btn {
+  margin: 9px 5px;
+}
+.delete-task-btn:hover {
+  transition: 0.5s;
+  background-color: #ff5353;
+}
+.edit-task-btn {
+  margin: 9px 5px;
+}
+h1 {
+  font-family: "Bebas Neue", cursive;
+  color: white;
+  margin: 3%;
+  font-size: 4rem;
+}
+h2 {
+  font-family: "Bebas Neue", cursive;
+  color: white;
+  margin: 1%;
+  font-size: 3rem;
+}
+button {
+  user-select: none;
+  transition: 0.5s;
+  margin: 3%;
+  margin-top: 0;
+  font-family: "Bebas Neue", cursive;
+  font-size: x-large;
+  padding: 8px 19px;
+  color: #2b1055;
+  background-color: white;
+  border-radius: 25px;
+  height: auto;
+  width: auto;
+  min-width: 10%;
+
+  cursor: pointer;
+}
+.task-section {
+  display: block;
+}
+.task-single {
+  padding: 0.5% 1%;
+  font-family: "Alfa Slab One", cursive;
+  border-radius: 10px;
+  background: rgba(17, 6, 33, 0.7);
+  margin: 1.5% 10%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.editndel {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+}
+.completed {
+  cursor: pointer;
+  user-select: none;
+}
+#create-completed {
+  cursor: pointer;
+  user-select: none;
+}
+.task-desc {
+  width: 100vmin;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.main-container {
+  opacity: 0.2;
+  pointer-events: none;
+}
+.edit-modal {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  overflow-x: hidden;
+  opacity: 0;
+  pointer-events: none;
+  background-color: rgba(31, 32, 41, 0.75);
+}
+.create-modal {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  overflow-x: hidden;
+  opacity: 0;
+  pointer-events: none;
+  background-color: rgba(31, 32, 41, 0.75);
+}
+.edit-modal-wrap {
+  width: 70%;
+  min-width: 620px;
+  height: 70%;
+  min-height: 550px;
+  background: rgba(17, 6, 33, 0.7);
+  border-radius: 10px;
+  padding: 2%;
+}
+.edit-modal-wrap form {
+  height: 100%;
+  width: 100%;
+  padding-bottom: 0%;
+}
+.edit-modal-wrap textarea {
+  border: none;
+  padding: 0.5%;
+  font-size: 1.5rem;
+  font-family: "Alfa Slab One", cursive;
+  vertical-align: top;
+  text-align: left;
+  color: white;
+  background: rgba(0, 0, 0, 0.4);
+  resize: none;
+  width: 100%;
+  height: 70%;
+}
+.edit-modal-wrap p {
+  user-select: none;
+  font-family: "Alfa Slab One", cursive;
+  cursor: pointer;
+  font-size: 2rem;
+  width: fit-content;
+}
+.edit-modal-bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0%;
+  padding: 2%;
+  padding-left: 1%;
+}
+.edit-modal-bottom-btns {
+  margin: 2% 2%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.edit-modal-bottom-btns button {
+  min-width: 70%;
+}
+.visible {
+  opacity: 1;
+  pointer-events: all;
+}
+#task-manip {
+  padding-right: 7%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}

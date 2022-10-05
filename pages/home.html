@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../style/home.css" />
+    <link rel="icon" href="../images/deezfavicon.jpg" />
+    <title>Home</title>
+  </head>
+  <body>
+    <section id="all-conteiner">
+      <section id="main-container">
+        <header>
+          <img class="logo" src="../images/DEEZ.png" />
+          <section class="nav-btns">
+            <button class="nav-btn" id="tasksbtn">My tasks</button>
+            <button class="nav-btn" id="profilebtn">Profile</button>
+            <button class="nav-btn" id="logoutbtn">Log out</button>
+          </section>
+        </header>
+        <h1>Your tasks :</h1>
+        <section id="task-manip">
+          <button class="new-task-btn">New task</button>
+          <button id="filter-btn">filter: newest</button>
+        </section>
+        <section class="task-section">
+          <p id="new-tasks"></p>
+        </section>
+      </section>
+      <section class="edit-modal">
+        <section class="edit-modal-wrap">
+          <form id="edit-task-form">
+            <h2>Your task</h2>
+            <textarea id="desc-text" type="text" name="description"></textarea>
+            <section class="edit-modal-bottom">
+              <p id="edit-completed" class="edit-modal-completed">Done</p>
+              <section class="edit-modal-bottom-btns">
+                <button type="button" id="edit-cancel-btn">Cancel</button>
+                <button type="submit">Save</button>
+              </section>
+            </section>
+          </form>
+        </section>
+      </section>
+    </section>
+    <section class="create-modal">
+      <section class="edit-modal-wrap">
+        <form id="create-task-form">
+          <h2>Your task</h2>
+          <textarea
+            id="new-desc-text"
+            type="text"
+            name="description"
+          ></textarea>
+          <section class="edit-modal-bottom">
+            <p id="create-completed" class="create-modal-completed">Done</p>
+            <section class="edit-modal-bottom-btns">
+              <button type="button" id="create-cancel-btn">Cancel</button>
+              <button type="submit">Save</button>
+            </section>
+          </section>
+        </form>
+      </section>
+    </section>
+  </body>
+  <script type="module" src="../js/home.js"></script>
+</html>

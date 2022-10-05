@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../style/profile.css" />
+    <link rel="icon" href="../images/deezfavicon.jpg" />
+    <title>Profile</title>
+  </head>
+  <body>
+    <header>
+      <img class="logo" src="../images/DEEZ.png" />
+      <section class="nav-btns">
+        <button class="nav-btn" id="tasksbtn">My tasks</button>
+        <button class="nav-btn" id="profilebtn">Profile</button>
+        <button class="nav-btn" id="logoutbtn">Log out</button>
+      </section>
+    </header>
+    <section id="infopanel">
+      <h1>Your details :</h1>
+      <button id="edit-btn">edit</button>
+    </section>
+    <section id="details">
+      <h2 id="name" class="data">Name :</h2>
+      <h2 id="email" class="data">Email :</h2>
+      <h2 id="age" class="data">Age :</h2>
+    </section>
+    <section class="edit-modal">
+      <section class="edit-modal-wrap">
+        <h2 id="modal-error">Your details</h2>
+        <form id="edit-profile-form">
+          <section id="inputs">
+            <label for="name">Name :</label>
+            <input type="text" name="name" id="name-edit" />
+            <label for="email">Email :</label>
+            <input type="email" name="email" id="email-edit" />
+            <label for="age">Age :</label>
+            <input type="number" name="age" id="age-edit" />
+            <label for="password">New Password :</label>
+            <input
+              type="text"
+              name="password"
+              id="password-edit"
+              minlength="8"
+            />
+          </section>
+          <section class="edit-modal-bottom">
+            <button type="button" id="edit-cancel-btn">Cancel</button>
+            <button type="submit">Save</button>
+          </section>
+        </form>
+      </section>
+    </section>
+  </body>
+  <script type="module" src="../js/profile.js"></script>
+</html>

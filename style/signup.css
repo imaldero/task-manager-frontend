@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+body {
+  color: white;
+  min-height: 100vh;
+  background-color: #2b1055;
+  /* background: linear-gradient(#2b1055, #7597de); */
+  background-image: url("../images/15Z_2102.w026.n002.163B.p1.163.jpg");
+  background-position: center 0px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+header {
+  margin: 30px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+}
+.logo {
+  margin: 2%;
+  height: 8%;
+  width: 8%;
+  min-width: 70px;
+  min-height: 20px;
+}
+.signinpagebtn {
+  transition: 0.5s;
+  margin: 2%;
+  font-family: "Bebas Neue", cursive;
+  font-size: x-large;
+
+  padding: 8px 19px;
+
+  color: #2b1055;
+  background-color: white;
+  border-radius: 25px;
+  height: auto;
+  width: auto;
+  cursor: pointer;
+}
+button:hover {
+  transition: 0.5s;
+  background-color: #a8a8a8;
+}
+.form-container {
+  border-radius: 10px;
+  background: rgba(17, 6, 33, 0.7);
+
+  padding: 30px;
+  margin: auto;
+  margin-top: 8%;
+  width: 30%;
+  max-width: 70%;
+  min-width: 250px;
+}
+.form-container input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.form-container label {
+  font-size: x-large;
+  font-family: "Bebas Neue", cursive;
+  color: white;
+}
+.form-container button {
+  cursor: pointer;
+  margin: 2%;
+  font-family: "Bebas Neue", cursive;
+  font-size: x-large;
+  padding: 8px 19px;
+  color: #2b1055;
+  background-color: white;
+  border-radius: 25px;
+  height: auto;
+  width: 80%;
+  margin-left: 10%;
+  transition: 0.5s;
+}
+.form-container button:hover {
+  transition: 0.5s;
+  background-color: #a8a8a8;
+}
+.resultsec {
+  display: flex;
+  align-items: center;
+}
+#resultmsg {
+  font-family: "Bebas Neue", cursive;
+  margin: auto;
+  font-size: 2.3rem;
+  vertical-align: middle;
+}
