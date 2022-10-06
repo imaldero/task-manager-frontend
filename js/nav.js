@@ -6,7 +6,7 @@ export const navFunc = () => {
   logoutbtn.addEventListener(`click`, (e) => {
     const token = localStorage.getItem(`token`);
     e.preventDefault();
-    fetch(`https://imaldero-task-manager.herokuapp.com/users/logoutall`, {
+    fetch(`https://imaldero-task-manager.herokuapp.com/users/logout`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },

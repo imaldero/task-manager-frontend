@@ -25,6 +25,9 @@
       <h2 id="email" class="data">Email :</h2>
       <h2 id="age" class="data">Age :</h2>
     </section>
+    <section id="delete-sec">
+      <button id="delete-acc-btn">Delete account</button>
+    </section>
     <section class="edit-modal">
       <section class="edit-modal-wrap">
         <h2 id="modal-error">Your details</h2>
@@ -35,7 +38,7 @@
             <label for="email">Email :</label>
             <input type="email" name="email" id="email-edit" />
             <label for="age">Age :</label>
-            <input type="number" name="age" id="age-edit" />
+            <input type="number" name="age" id="age-edit" max="150" min="0" />
             <label for="password">New Password :</label>
             <input
               type="text"

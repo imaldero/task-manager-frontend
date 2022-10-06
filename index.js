@@ -11,6 +11,8 @@ const loginform = document.querySelector(`#loginform`);
 
 loginform.addEventListener(`submit`, (e) => {
   e.preventDefault();
+  resultmsg.textContent = `Loading...`;
+  resultmsg.style.color = `#7aff70`;
   const data = new FormData(loginform);
   const email = data.get(`email`);
   const pass = data.get(`password`);
@@ -32,8 +34,7 @@ loginform.addEventListener(`submit`, (e) => {
         resultmsg.style.color = `#ff5353`;
         return;
       }
-      resultmsg.textContent = `Loading...`;
-      resultmsg.style.color = `#7aff70`;
+
       return response.json();
     })
     .then((data) => {

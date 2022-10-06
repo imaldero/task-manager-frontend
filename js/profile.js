@@ -11,6 +11,7 @@ const modal = document.querySelector(`.edit-modal`);
 const editcancel = document.querySelector(`#edit-cancel-btn`);
 const editform = document.querySelector(`#edit-profile-form`);
 const h2 = document.querySelector(`#modal-error`);
+const deleteacc = document.querySelector(`#delete-acc-btn`);
 
 import { navFunc } from "./nav.js";
 const fetchinfo = async () => {
@@ -21,6 +22,12 @@ const fetchinfo = async () => {
     },
   })
     .then((response) => {
+      if (response.status === 401) {
+        h1.textContent = `Session terminated!`;
+        h1.style.color = `#ff5353`;
+        localStorage.clear();
+        location.href = `../index.html`;
+      }
       return response.json();
     })
     .then((data) => {
@@ -85,6 +92,10 @@ editform.addEventListener(`submit`, async (e) => {
       emailmain.textContent = `Email :`;
       agemain.textContent = `Age :`;
       fetchinfo();
+      console.log(jsnString);
+      if (jsnString.password) {
+        logoutall();
+      }
 
       modal.classList.remove(`visible`);
 
@@ -94,4 +105,42 @@ editform.addEventListener(`submit`, async (e) => {
     .catch((e) => {
       console.log(e);
     });
+});
+
+const logoutall = () => {
+  const token = localStorage.getItem(`token`);
+
+  fetch(`https://imaldero-task-manager.herokuapp.com/users/logoutall`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    method: "POST",
+  })
+    .then((response) => {
+      localStorage.clear();
+      location.href = `../index.html`;
+    })
+    .catch((e) => {
+      console.log(`error: ` + e);
+    });
+};
+
+deleteacc.addEventListener(`click`, (e) => {
+  if (confirm(`Are you sure you want to delete your account?`)) {
+    const token = localStorage.getItem(`token`);
+
+    fetch(`https://imaldero-task-manager.herokuapp.com/users/me`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      method: "DELETE",
+    })
+      .then((response) => {
+        localStorage.clear();
+        location.href = `../index.html`;
+      })
+      .catch((e) => {
+        console.log(`error: ` + e);
+      });
+  }
 });

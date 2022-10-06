@@ -27,6 +27,12 @@ const fetchTasks = (filter = ``) => {
     },
   })
     .then((response) => {
+      if (response.status === 401) {
+        h1.textContent = `Session terminated!`;
+        h1.style.color = `#ff5353`;
+        localStorage.clear();
+        location.href = `../index.html`;
+      }
       return response.json();
     })
     .then((data) => {
