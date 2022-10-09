@@ -11,6 +11,7 @@ const modal = document.querySelector(`.edit-modal`);
 const editcancel = document.querySelector(`#edit-cancel-btn`);
 const editform = document.querySelector(`#edit-profile-form`);
 const h2 = document.querySelector(`#modal-error`);
+const h1 = document.querySelector(`h1`);
 const deleteacc = document.querySelector(`#delete-acc-btn`);
 
 import { navFunc } from "./nav.js";
