@@ -159,9 +159,12 @@ pfpform.addEventListener(`submit`, async (e) => {
     headers: {
       Authorization: `Bearer ${token}`,
     },
-    body: file,
+    body: {
+      avatar: file,
+    },
   })
     .then((response) => {
+      console.log(response);
       return response.json();
     })
     .then((data) => {
