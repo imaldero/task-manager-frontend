@@ -13,6 +13,7 @@ const editform = document.querySelector(`#edit-profile-form`);
 const h2 = document.querySelector(`#modal-error`);
 const h1 = document.querySelector(`h1`);
 const deleteacc = document.querySelector(`#delete-acc-btn`);
+const pfpform = document.querySelector(`#pfp`);
 
 import { navFunc } from "./nav.js";
 const fetchinfo = async () => {
@@ -144,4 +145,29 @@ deleteacc.addEventListener(`click`, (e) => {
         console.log(`error: ` + e);
       });
   }
+});
+
+pfpform.addEventListener(`submit`, async (e) => {
+  e.preventDefault();
+  const upload = document.querySelector(`#file`);
+  const file = upload.files[0];
+  const data = new FormData();
+  console.log(file);
+
+  await fetch(`https://imaldero-task-manager.herokuapp.com/users/me/avatar`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    body: file,
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      console.log(data);
+    })
+    .catch((e) => {
+      console.log(`error: ` + e);
+    });
 });
