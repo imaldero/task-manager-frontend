@@ -149,23 +149,21 @@ deleteacc.addEventListener(`click`, (e) => {
 
 pfpform.addEventListener(`submit`, async (e) => {
   e.preventDefault();
-  const upload = document.querySelector(`#file`);
+  const upload = document.getElementById(`file`);
   const file = upload.files[0];
-  const data = new FormData();
   console.log(file);
+  const fdata = new FormData();
+  fdata.append(`avatar`, file);
 
   await fetch(`https://imaldero-task-manager.herokuapp.com/users/me/avatar`, {
     method: "POST",
     headers: {
       Authorization: `Bearer ${token}`,
     },
-    body: {
-      avatar: file,
-    },
+    body: fdata,
   })
     .then((response) => {
-      console.log(response);
-      return response.json();
+      return response;
     })
     .then((data) => {
       console.log(data);
