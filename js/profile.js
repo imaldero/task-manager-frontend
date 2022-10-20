@@ -14,6 +14,7 @@ const h2 = document.querySelector(`#modal-error`);
 const h1 = document.querySelector(`h1`);
 const deleteacc = document.querySelector(`#delete-acc-btn`);
 const pfpform = document.querySelector(`#pfp`);
+const showpic = document.querySelector(`#showpic`);
 
 import { navFunc } from "./nav.js";
 const fetchinfo = async () => {
@@ -151,23 +152,35 @@ pfpform.addEventListener(`submit`, async (e) => {
   e.preventDefault();
   const upload = document.getElementById(`file`);
   const file = upload.files[0];
-  console.log(file);
+  // console.log(file);
   const fdata = new FormData();
   fdata.append(`avatar`, file);
 
   await fetch(`https://imaldero-task-manager.herokuapp.com/users/me/avatar`, {
     method: "POST",
     headers: {
+      // "Access-Control-Allow-Origin": "*",
+      // "Content-Type": "multipart/form-data",
       Authorization: `Bearer ${token}`,
     },
     body: fdata,
   })
-    .then((response) => {
-      return response;
-    })
-    .then((data) => {
-      console.log(data);
-    })
+    .then((res) => res.json())
+    .then((res) => console.log(res))
+    .catch((e) => {
+      console.log(`error: ` + e);
+    });
+});
+
+showpic.addEventListener(`click`, async (e) => {
+  await fetch("https://imaldero-task-manager.herokuapp.com/users/me/avatar", {
+    Method: "GET",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  })
+    .then((res) => res)
+    .then((res) => console.log(res))
     .catch((e) => {
       console.log(`error: ` + e);
     });
