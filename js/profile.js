@@ -13,8 +13,9 @@ const editform = document.querySelector(`#edit-profile-form`);
 const h2 = document.querySelector(`#modal-error`);
 const h1 = document.querySelector(`h1`);
 const deleteacc = document.querySelector(`#delete-acc-btn`);
-const pfpform = document.querySelector(`#pfp`);
-const showpic = document.querySelector(`#showpic`);
+const uploadbtn = document.querySelector(`#upload-btn`);
+const avatarimage = document.querySelector(`#avatarimage`);
+const deleteavatar = document.querySelector(`#delete-avatar-btn`);
 
 import { navFunc } from "./nav.js";
 const fetchinfo = async () => {
@@ -148,7 +149,7 @@ deleteacc.addEventListener(`click`, (e) => {
   }
 });
 
-pfpform.addEventListener(`submit`, async (e) => {
+uploadbtn.addEventListener(`click`, async (e) => {
   e.preventDefault();
   const upload = document.getElementById(`file`);
   const file = upload.files[0];
@@ -159,29 +160,67 @@ pfpform.addEventListener(`submit`, async (e) => {
   await fetch(`https://imaldero-task-manager.herokuapp.com/users/me/avatar`, {
     method: "POST",
     headers: {
-      // "Access-Control-Allow-Origin": "*",
-      // "Content-Type": "multipart/form-data",
       Authorization: `Bearer ${token}`,
     },
     body: fdata,
   })
     .then((res) => res.json())
-    .then((res) => console.log(res))
+    .then((res) => {
+      // console.log(res);
+      if (res.error === `File too large`) {
+        h1.textContent = res.error + `. Max size: 10MB`;
+        h1.style.color = `#ff5353`;
+      } else if (res.error) {
+        h1.textContent = res.error;
+        h1.style.color = `#ff5353`;
+      }
+    })
     .catch((e) => {
       console.log(`error: ` + e);
     });
+
+  fetchAvatar();
 });
 
-showpic.addEventListener(`click`, async (e) => {
+const fetchAvatar = async () => {
   await fetch("https://imaldero-task-manager.herokuapp.com/users/me/avatar", {
     Method: "GET",
     headers: {
       Authorization: `Bearer ${token}`,
     },
   })
-    .then((res) => res)
-    .then((res) => console.log(res))
+    .then((res) => res.blob())
+    .then((res) => {
+      // console.log(res);
+      const imageObjectURL = URL.createObjectURL(res);
+      if (res.size <= 0) {
+        avatarimage.src = ``;
+        avatarimage.classList.remove(`pfp`);
+        return;
+      }
+      avatarimage.classList.add(`pfp`);
+      avatarimage.src = imageObjectURL;
+    })
     .catch((e) => {
       console.log(`error: ` + e);
     });
+};
+
+fetchAvatar();
+
+deleteavatar.addEventListener(`click`, async (e) => {
+  await fetch(`https://imaldero-task-manager.herokuapp.com/users/me/avatar`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    method: "DELETE",
+  })
+    .then((res) => res.json())
+    .then((res) => {
+      // console.log(res);
+    })
+    .catch((e) => {
+      console.log(`error: ` + e);
+    });
+  fetchAvatar();
 });

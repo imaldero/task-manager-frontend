@@ -20,18 +20,23 @@
       <h1>Your details :</h1>
       <button id="edit-btn">edit</button>
     </section>
-    <section id="details">
+    <section id="infocontainer">
+      <img id="avatarimage" src=""/>
+      <section id="details">
       <h2 id="name" class="data">Name :</h2>
       <h2 id="email" class="data">Email :</h2>
       <h2 id="age" class="data">Age :</h2>
     </section>
+    </section>
     <section id="delete-sec">
-      <button id="delete-acc-btn">Delete account</button>
-    <form id="pfp">
+      <section id="del-btns">
+      <button id="delete-acc-btn" class="delete-btns">Delete account</button>
+      <button id="delete-avatar-btn" class="delete-btns">Delete avatar</button>
+    </section>
+      <section id="upload-sec">
       <input type="file" id="file" enctype="multipart/form-data" name="avatar"></input>
       <button id="upload-btn" type="submit">upload</button>
-    </form>
-    <button id="showpic">pic</button>
+    </section>
     </section>
     <section class="edit-modal">
       <section class="edit-modal-wrap">
