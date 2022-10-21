@@ -177,6 +177,8 @@ uploadbtn.addEventListener(`click`, async (e) => {
     })
     .catch((e) => {
       console.log(`error: ` + e);
+      h1.textContent = `Your details :`;
+      h1.style.color = `ffffff`;
     });
 
   fetchAvatar();
